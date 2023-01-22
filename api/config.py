@@ -1,15 +1,20 @@
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import create_engine
 from flask import Flask
+from flask_sslify import SSLify
+
 from dotenv import load_dotenv
 import os
 load_dotenv()
 app = Flask(__name__)
+sslify = SSLify(app)
+
 # Crea un objeto engine
 User = str(os.environ.get("USERBD"))
-Password = str(os.environ.get("PASSWORDBD"))
+Password = str(os.environ.get("PASSBD"))
 Host = str(os.environ.get("HOST"))
 BD = str(os.environ.get("BD"))
+
 
 engine = create_engine("mysql://"+User+":"+Password+"@"+Host)
 # Verifica si la base de datos "elaverde" existe
