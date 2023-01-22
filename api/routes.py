@@ -11,7 +11,6 @@ from api.models.SkillsSchema import SkillsSchema
 from api.models.About import About
 from api.models.AboutSchema import AboutSchema
 from flask import jsonify, request
-import json
 
 employmentSchema = EmploymentSchema(many=True)
 studiesSchema = StudiesSchema(many=True)
