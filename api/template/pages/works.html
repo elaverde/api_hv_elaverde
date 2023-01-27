@@ -1,0 +1,24 @@
+<div class="elaverde">
+    <div class="info">
+        {% include './componets/header.html' %}
+        <div class="title_section">
+            <h2>
+                <img width="20" src="data:image/png;base64,{{ icon10 }}" alt="image">
+                    Trabajos Realizados
+                </h2>
+            <hr>
+        </div>
+        <ul class="info_list">
+            {% for work in  portfolio %}
+            <li style="margin-top: 20px;">
+                {{work.title}}<br>
+                <span>{{work.subtitle}}</span><br>
+                <a href="{{work.link}}" >{{work.link}}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="slide">
+        {% include './componets/info_basic.html' %}
+    </div>
+</div>

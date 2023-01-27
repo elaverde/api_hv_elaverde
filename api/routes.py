@@ -10,7 +10,9 @@ from api.models.Skills import Skills
 from api.models.SkillsSchema import SkillsSchema
 from api.models.About import About
 from api.models.AboutSchema import AboutSchema
-from flask import jsonify, request
+from api.models.Pdf import Pdf
+from flask import jsonify, request,  send_file, make_response
+
 
 employmentSchema = EmploymentSchema(many=True)
 studiesSchema = StudiesSchema(many=True)
@@ -54,3 +56,17 @@ def get_about():
     response = jsonify(result[0])
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
+
+@app.route("/getPDF", methods=["GET"])
+def get_pdf():
+    pdf = Pdf()
+    if pdf.convertHTMLtoPDF():
+        try:
+            pdf = open("HV_Edilson_Laverde_Molina.pdf", 'rb')
+            response = make_response(pdf.read())
+            response.headers['Content-Type'] = 'application/pdf'
+            response.headers["Content-Disposition"] = "attachment; filename=HV_Edilson_Laverde_Molina.pdf"
+            return response
+        except Exception as e:
+            return str(e)
+    return False  

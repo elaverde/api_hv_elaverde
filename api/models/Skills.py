@@ -5,4 +5,5 @@ class Skills(db.Model):
     name = db.Column(db.String(256), nullable=False)
     percentage = db.Column(db.Integer, nullable=False)
     icon = db.Column(db.String(30), nullable=False)
+    url = db.Column(db.Text(), nullable=False)
 

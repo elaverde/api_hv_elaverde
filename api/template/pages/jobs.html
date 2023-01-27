@@ -1,0 +1,53 @@
+<!--trabajos agrupados de 9 por pagína-->
+{% for works in employment %}
+    <div class="elaverde">
+        <div class="info">
+            {% include './componets/header.html' %}
+            <!--si el index pone el titulo con h2 para que quede en el esuqma del pdf-->
+            {% if loop.index == 1 %}
+            <div class="title_section">
+                <h2><img width="20" src="data:image/png;base64,{{ icon10 }}" alt="image"> Información Laboral</h2>
+                <hr>
+            </div>
+            {% endif %}
+            {% if loop.index != 1 %}
+            <div class="title_section">
+                <div><img width="20" src="data:image/png;base64,{{ icon10 }}" alt="image"> Información Laboral</div>
+                <hr>
+            </div>
+            {% endif %}
+            <!--los resultados ha detalle de los 9 pdf -->
+            {% for work in works %}
+            <div>
+            <img style="float: right; margin-top: 20px;" height="30" src="data:image/png;base64,{{ icon8 }}" alt="image">
+            <ul style="margin-top: 20px;;" class="info_list">
+                <li style="font-size: 14px; font-weight: normal;" ><b>Cargo:</b> <h3 style="font-weight: normal;">{{work.charge}}</h3></li>
+                <li style="font-size: 14px; font-weight: normal;" ><b>Empresa:</b> <h4></h4>{{work.enterprise}}</h4></li> 
+                <li style="font-size: 14px; font-weight: normal;" ><b>Labor:</b> <span style="font-size: 14px; font-weight: normal;">{{work.work}}</span></li>
+                {% if work.dateEnd == None %}
+                <li style="font-size: 14px; font-weight: normal;" ><b>Fecha:</b> {{work.dateEntry}} -  Actualidad</li>
+                {% else %}
+                <li style="font-size: 14px; font-weight: normal;" ><b>Fecha:</b> {{work.dateEntry}} - {{work.dateEnd}}</li>
+                {% endif %}   
+            </ul>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="slide">
+            {% include './componets/info_basic.html' %}
+            <!--skills van en cada pagina de experiencia laboral-->
+            <p class="title_skill">Skills</p>
+            <ul  style="width: 86%;" class="skill_list">
+                {% for skill in skills[loop.index-1] %}
+                <li><br></li>
+                <li>
+                    <img  width="40" height="20" src="{{skill.url}}" />
+                    {{skill.name}}</li>
+                <li>
+                    <div style="border-radius:10px; width: {{skill.percentage}}%; height: 10px; background-color: #20ce65;"></div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% endfor %}
