@@ -144,7 +144,10 @@ class Pdf:
         for i in range(1,11):
             with open("./api/template/images/icon"+str(i)+".png", "rb") as image:
                 img_data = image.read()
-            self.context['icon'+str(i)] = base64.b64encode(img_data).decode() 
+            self.context['icon'+str(i)] = base64.b64encode(img_data).decode()
+        with open("./api/template/images/persona.jpg", "rb") as image:
+            img_data = image.read()
+            self.context['profile'] = base64.b64encode(img_data).decode() 
 
         template_loader = jinja2.FileSystemLoader('./api/template/')
         template_dir = template_loader.searchpath[0]
