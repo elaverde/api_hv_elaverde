@@ -3,7 +3,6 @@
     padding: 0;
     box-sizing: border-box;
     font-size: 14px;
-   
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
@@ -44,12 +43,12 @@ body{
 }
 
 
-/*helpers*/
+/*titulos secciones*/
 .title_section{
     color: #20ce65;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
-    font-size:28px !important;
+   
     width: 100%;
     text-align: right;
     margin-right: 200px;
@@ -57,22 +56,24 @@ body{
     margin-bottom: 35px;
     display: table;
 }
-.title_section p{
-    width: 100%;
+.title_section div, .title_section h2{
+    font-size:22px !important;
+    text-shadow: #d5d5d5 0px 1px 0px;
 }
 hr{
     margin-top: 10px;
 }
 
-
+/* titulo y subtitulo de la hoja de vida */
 .title{
     color: #20ce65;
     font-family: 'Roboto', sans-serif;
     font-weight: 100;
     font-size: 36px;
+    text-shadow: #030303 0px 1px 0px;
 }
 .subtitle{
-    color: #20ce65;
+    color: #030303;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
     font-size: 22px;
