@@ -57,7 +57,7 @@ body{
     display: table;
 }
 .title_section div, .title_section h2{
-    font-size:22px !important;
+    font-size:18px !important;
     text-shadow: #d5d5d5 0px 1px 0px;
 }
 hr{
