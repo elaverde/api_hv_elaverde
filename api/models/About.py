@@ -16,3 +16,6 @@ class About(db.Model):
     city = db.Column(db.String(256), nullable=False)
     country = db.Column(db.String(256), nullable=False)
     about = db.Column(db.Text(), nullable=False)
+    linkedin = db.Column(db.String(256), nullable=False)
+    github = db.Column(db.String(256), nullable=False)
+    gitlab = db.Column(db.String(256), nullable=False)

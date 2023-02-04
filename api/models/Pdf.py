@@ -51,7 +51,10 @@ class Pdf:
             'city':info['city'],
             'birthdate':info['birthdate'],
             'about':info['about'],
-            'school':school
+            'school':school,
+            'linkedin':info['linkedin'],
+            'github':info['github'],
+            'gitlab':info['gitlab']
         }
         return info 
     def format_date(self,date):

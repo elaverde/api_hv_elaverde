@@ -16,4 +16,7 @@ class AboutSchema(Schema):
     city = fields.String(required=True)
     country = fields.String(required=True)
     about = fields.String(required=True)
+    linkedin = fields.String(required=True)
+    github = fields.String(required=True)
+    gitlab = fields.String(required=True)
     
