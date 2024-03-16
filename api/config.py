@@ -18,10 +18,10 @@ BD = str(os.environ.get("BD"))
 
 engine = create_engine("mysql://"+User+":"+Password+"@"+Host)
 # Verifica si la base de datos "elaverde" existe
-result = engine.execute("SHOW DATABASES").fetchall()
-databases = [x[0] for x in result]
-if BD not in databases:
-    engine.execute("CREATE DATABASE "+BD)
+#result = engine.execute("SHOW DATABASES").fetchall()
+#databases = [x[0] for x in result]
+#if BD not in databases:
+#    engine.execute("CREATE DATABASE "+BD)
 # Crea un objeto db
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
