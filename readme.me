@@ -1,0 +1,16 @@
+imagen
+docker buil -t hv .
+contenedor
+
+docker run -d -p 5000:5000 --volume=C:\Users\edils\OneDrive\Python\api_hv_elaverde:/app --network="host" --name hv_elaverde hv
+
+
+docker stop hv_elaverde
+
+docker start hv_elaverde
+
+
+docker run -d -p 5555:5555 -v $(pwd)/src:/app --name hv_elaverde hv
+
+windoww
+docker run -d -p 5555:5555 --volume=C:\Users\edils\OneDrive\Documentos\Python\hv_service:/app --name hv_elaverde hv

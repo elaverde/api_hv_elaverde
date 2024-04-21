@@ -21,6 +21,9 @@ skillsSchema = SkillsSchema(many=True)
 aboutSchema = AboutSchema(many=True)
 
 
+
+
+
 @app.route("/jobs", methods=["GET"])
 def get_jobs():
     all_employment = Employment.query.order_by(Employment.dateEntry.desc()).all()
