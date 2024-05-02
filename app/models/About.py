@@ -1,4 +1,4 @@
-from api.config import db
+from app import db
 
 class About(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -19,3 +19,25 @@ class About(db.Model):
     linkedin = db.Column(db.String(256), nullable=False)
     github = db.Column(db.String(256), nullable=False)
     gitlab = db.Column(db.String(256), nullable=False)
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'lastname': self.lastname,
+            'birthdate': self.birthdate,
+            'civil_status': self.civil_status,
+            'dni': self.dni,
+            'degree': self.degree,
+            'location': self.location,
+            'phone': self.phone,
+            'address': self.address,
+            'email': self.email,
+            'site': self.site,
+            'city': self.city,
+            'country': self.country,
+            'about': self.about,
+            'linkedin': self.linkedin,
+            'github': self.github,
+            'gitlab': self.gitlab
+        }
