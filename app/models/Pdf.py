@@ -154,13 +154,8 @@ class Pdf:
             'margin-left': '0.0in',
             'orientation': 'Portrait'
         }
-        # Generar el PDF con la hoja de estilos especificada
-        
-        
-        
         # Create a configuration object with the specified path
         config = pdfkit.configuration(wkhtmltopdf="/usr/local/bin/wkhtmltopdf")
-
         try:
             # Convert HTML to PDF using the specified configuration app\template\css\styles.css
             pdfkit.from_string(ouputString, 'HV_Edilson_Laverde_Molina.pdf', configuration=config, options=options , css='/app/app/template/css/styles.css') 
