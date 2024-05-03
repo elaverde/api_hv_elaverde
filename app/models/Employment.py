@@ -14,8 +14,8 @@ class Employment(db.Model):
             'id': self.id,
             'enterprise': self.enterprise,
             'charge': self.charge,
-            'dateEntry': self.dateEntry,
-            'dateEnd': self.dateEnd,
+            'dateEntry': self.dateEntry.strftime('%Y-%m-%d'),
+            'dateEnd': self.dateEnd.strftime('%Y-%m-%d'),
             'work': self.work,
             'photo': self.photo
         }

@@ -24,7 +24,7 @@ class Pdf:
         result = about_data
         info = result[0]
         #ahora listamos los estudios por importancia el campo important debe ser igual 1 
-        all_studies = Studies.query.all()
+        all_studies = Studies.filter(Studies.important == 1).all()
         studies_data = [study.to_dict() for study in all_studies]
         school = studies_data
 
