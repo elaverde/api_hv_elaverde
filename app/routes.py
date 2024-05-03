@@ -23,7 +23,7 @@ def get_about():
 
 @app.route('/jobs', methods=['GET'])
 def get_jobs():
-    all_jobs = Employment.query.all()
+    all_jobs = Employment.query.order_by(Employment.dateEntry.desc()).all()
     jobs_data = [job.to_dict() for job in all_jobs]
     response = jsonify(jobs_data)
     response.headers.add('Access-Control-Allow-Origin', '*')
