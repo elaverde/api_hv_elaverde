@@ -47,7 +47,7 @@ def get_skills():
 
 @app.route('/studies', methods=['GET'])
 def get_studies():
-    all_studies = Studies.query.filter(Studies.important == 1).order_by(Studies.dateEntry.desc()).all()
+    all_studies = Studies.query.order_by(Studies.dateEntry.desc()).all()
     studies_data = [study.to_dict() for study in all_studies]
     response = jsonify(studies_data)
     response.headers.add('Access-Control-Allow-Origin', '*')

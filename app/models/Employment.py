@@ -10,12 +10,23 @@ class Employment(db.Model):
     photo = db.Column(db.Text(), nullable=False)
 
     def to_dict(self):
-        return {
+        result = {
             'id': self.id,
             'enterprise': self.enterprise,
             'charge': self.charge,
-            'dateEntry': self.dateEntry.strftime('%Y-%m-%d'),
-            'dateEnd': self.dateEnd.strftime('%Y-%m-%d'),
             'work': self.work,
             'photo': self.photo
         }
+
+        # Formatear las fechas si existen
+        if self.dateEntry:
+            result['dateEntry'] = self.dateEntry.strftime('%Y-%m-%d')
+        else:
+            result['dateEntry'] = ""
+
+        if self.dateEnd:
+            result['dateEnd'] = self.dateEnd.strftime('%Y-%m-%d')
+        else:
+            result['dateEnd'] = ""
+
+        return result
