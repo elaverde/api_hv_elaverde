@@ -10,6 +10,7 @@ RUN apk update && apk add --no-cache gcc g++ make\
     ttf-liberation \
     pkgconfig \
     mariadb-dev \
+    git \
     ttf-ubuntu-font-family
 
 # Copiar wkhtmltopdf desde una imagen que ya lo tiene instalado
