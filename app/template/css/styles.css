@@ -1,0 +1,158 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+p{
+    font-family: 'Roboto', sans-serif;
+    margin-top: 10px;
+    text-align: justify;
+    
+}
+a{
+    text-decoration: none;
+    color: #20ce65;
+}
+body{
+    min-width: 100%;
+    min-height: 100%;
+    background-color: #d5d5d541;
+}
+.elaverde{
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+    min-width: 100%;
+    min-height: 1403px;
+    top: 0;
+    left: 0;
+
+    overflow: hidden;
+    page-break-inside: avoid;
+}
+.info{
+    width: 67%;
+    float: left;
+    height: 100vh;
+    box-sizing: border-box;
+    padding: 60px 20px 20px 20px;
+    color: #19232b;
+}
+
+
+/*titulos secciones*/
+.title_section{
+    color: #20ce65;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+   
+    width: 100%;
+    text-align: right;
+    margin-right: 200px;
+    margin-top: 50px;
+    margin-bottom: 35px;
+    display: table;
+}
+.title_section div, .title_section h2{
+    font-size:18px !important;
+    text-shadow: #d5d5d5 0px 1px 0px;
+}
+hr{
+    margin-top: 10px;
+}
+
+/* titulo y subtitulo de la hoja de vida */
+.title{
+    color: #20ce65;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-size: 36px;
+    text-shadow: #030303 0px 1px 0px;
+}
+.subtitle{
+    color: #030303;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 22px;
+}
+/* Imagen de perfil */
+.slide .profile_picture{
+    width: 70%;
+    object-fit: cover;
+    position: relative;
+    left: 15%;
+    top:20px;
+    border-radius: 50%;
+    border: 1px solid #FFF;
+}
+
+.slide_list{
+
+    list-style: none;
+    font-family: 'Roboto', sans-serif;
+    margin:60px 0 0 20px;
+
+    
+}
+
+.info_basic{
+    list-style: none;
+    font-family: 'Roboto', sans-serif;
+    margin:60px 0 0 20px;
+}
+.info_basic td{
+    font-size: 12px;
+    font-family: 'Roboto', sans-serif;
+}
+.info_basic td a{
+    font-size: 12px;
+    font-family: 'Roboto', sans-serif;
+    color: #FFF;
+}
+.slide_list li{
+    margin-top: 10px ;
+    font-size: 12px;
+}
+.info_list{
+    list-style: none;
+    font-family: 'Roboto', sans-serif;
+}
+.info_list a{
+    color: #000;
+}
+.info_list span{
+    font-weight: bold;
+}
+.info_list h3, .info_list h4{
+    font-weight: 100;
+    display: inline;
+}
+/*slider*/
+.slide{
+    background-color: #19232b;
+    height: 100%;
+    position:absolute;
+    min-height: 100%;
+    top:0;
+    right:0;
+    bottom:0;
+    width: 33%;
+    height: 100%;
+    color: #FFF !important;
+}
+.title_skill{
+    padding-left: 20px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 50px;
+    font-size: 20px;
+    
+}
+.skill_list{
+    list-style: none;
+    font-family: 'Roboto', sans-serif;
+    padding-left: 20px;
+}

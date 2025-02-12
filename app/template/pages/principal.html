@@ -1,0 +1,50 @@
+<div class="elaverde">
+    <div class="info">
+        {% include './componets/header.html' %}
+        <div class="title_section">
+            <h2>
+                <img width="20" src="data:image/png;base64,{{ icon4 }}" alt="image">
+                Datos Personales
+            </h2>
+            <hr>
+        </div>
+        <ul class="info_list">
+            <li><span>Nombre:</span> {{name}} {{lastname}}</li>
+            <li><span>Dirección:</span> {{address}}</li>
+            <li><span>Ciudad:</span> {{city}}</li>
+            <li><span>Fecha de Nacimiento:</span> {{birthdate}}</li>
+            <li><span>Estado civil:</span> {{civil_status}}</li>
+            <li><span>Celular:</span> <a href="tel:{{phone}}">{{phone}}</a></li>
+            <li><span>Email:</span> <a href="mailto:{{email}}">{{email}}</a></li>
+            <li><span>Portafolio:</span> <a href="https://elaverde.me/">{{site}}</a></li>
+        </ul>
+        <br><br><br><br><br><br>
+        <div class="title_section">
+            <h2>
+                <img width="20" src="data:image/png;base64,{{ icon1 }}" alt="image">
+                Perfil
+            </h2>
+            <hr>
+        </div>
+        <div>{{about}}</div>
+        <div class="title_section">
+            <h2>
+                <img width="20" src="data:image/png;base64,{{ icon7 }}" alt="image">
+                    Información Académica
+                </h2>
+            <hr>
+        </div>
+        {% for item in school %}
+        <h3 style="margin: 0; padding: 0;">{{ item.title }}</h3>
+        <ul class="info_list">
+            <li>{{ item.institution }}</li>
+            <li>{{ item.dateEnd }} </li>
+            <li>{{item.direction}}</li>
+        </ul>
+        <br><br><br>
+        {% endfor %}
+    </div>
+    <div class="slide">
+        {% include './componets/info_basic.html' %}
+    </div>
+</div>

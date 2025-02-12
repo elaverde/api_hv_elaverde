@@ -1,0 +1,23 @@
+<div class="elaverde">
+    <div class="info">
+        {% include './componets/header.html' %}
+        <div class="title_section">
+            <h2>
+                <img width="20" src="data:image/png;base64,{{ icon7 }}" alt="image">
+                    Cursos
+                </h2>
+            <hr>
+        </div>
+        <ul style="list-style: circle; margin-left: 20px;" class="info_list">
+            {% for complementary in complementarys %}
+            <li style="font-size: 14px; margin-top: 5px; line-height: 15px;">
+                <h3 style="font-size: 16px; font-weight: normal; ">{{complementary.title}}</h3><br>
+                <span style="font-size: 13px; line-height: 5px;">Institución: {{complementary.institution}}, {{complementary.dateEnd}} </span>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="slide">
+        {% include './componets/info_basic.html' %}
+    </div>
+</div>

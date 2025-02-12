@@ -1,0 +1,40 @@
+<div class="elaverde">
+    <div class="info">
+        {% include './componets/header.html' %}
+        <div class="title_section">
+            <h2>
+                <img width="20" src="data:image/png;base64,{{ icon1 }}" alt="image">
+                    Referencias Personales
+                </h2>
+            <hr>
+        </div>
+        <ul class="info_list">
+            {% for ref in  references_personal %}
+            <li style="margin-top: 20px;">
+                {{ref.name}}<br>
+                <span>{{ref.title}}</span><br>
+                <span><a href="tel:{{ref.phone}}">{{ref.phone}}</a></span><br>
+            </li>
+            {% endfor %}
+        </ul>
+        <div class="title_section">
+            <h2>
+                <img width="20" src="data:image/png;base64,{{ icon1 }}" alt="image">
+                    Referencias Familiar
+                </h2>
+            <hr>
+        </div>
+        <ul class="info_list">
+            {% for ref in  references_familiar %}
+            <li style="margin-top: 20px;">
+                {{ref.name}}<br>
+                <span>{{ref.title}}</span><br>
+                <span><a href="tel:{{ref.phone}}">{{ref.phone}}</a></span><br>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="slide">
+        {% include './componets/info_basic.html' %}
+    </div>
+</div>

@@ -1,0 +1,12 @@
+imagen
+docker build -t hv .
+contenedor
+
+docker run -d -p 5000:5000 --env-file .env  --volume=C:\Users\edils\OneDrive\Python\api_hv_elaverde:/app  --name hv_elaverde hv
+
+
+docker stop hv_elaverde
+
+docker start hv_elaverde
+
+
