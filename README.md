@@ -1,35 +1,29 @@
-# Instalación del paquete de idioma español en Linux con APT
+# Documentation for Docker Commands
 
-Para instalar el paquete de idioma español en un sistema Linux que utiliza el gestor de paquetes APT (Advanced Package Tool), ejecuta el siguiente comando en una terminal:
+## Build Docker Image
 
-```
-sudo apt-get install language-pack-es
-```
-```
-export LC_ALL=es_ES.UTF-8
-```
+- **Command**: `docker build -t hv .`
+- **Description**: Builds a Docker image with the tag `hv` using the Dockerfile in the current directory.
 
-Este comando descargará e instalará el paquete de idioma español en tu sistema.
+## Run Docker Container
 
-# Activación del idioma español en el sistema
+- **Command**:
+  ```bash
+  docker run -d -p 5000:5000 --env-file .env --volume=C:\Users\edils\OneDrive\Python\api_hv_elaverde:/app --name hv_elaverde hv
+  ```
+- **Description**: Runs a Docker container in detached mode (`-d`) with the following configurations:
+  - Maps port `5000` of the host to port `5000` of the container.
+  - Loads environment variables from the `.env` file.
+  - Mounts the directory `C:\Users\edils\OneDrive\Python\api_hv_elaverde` on the host to `/app` in the container.
+  - Names the container `hv_elaverde`.
+  - Uses the `hv` image.
 
-Para activar el idioma español en el sistema, sigue los siguientes pasos:
+## Stop Docker Container
 
-1. Abre el archivo de configuración de idioma de tu sistema con el siguiente comando:
+- **Command**: `docker stop hv_elaverde`
+- **Description**: Stops the running container named `hv_elaverde`.
 
-    ```
-    sudo nano /etc/default/locale
-    ```
+## Start Docker Container
 
-2. En el archivo, busca la línea que dice `LANG=` y cambia su valor a `es_ES.UTF-8`. Debería quedar algo como esto:
-
-    ```
-    LANG="es_ES.UTF-8"
-    ```
-
-3. Guarda los cambios y cierra el archivo.
-
-4. Reinicia el sistema para que los cambios surtan efecto.
-
-Después de estos pasos, el sistema debería estar configurado para usar el idioma español en diversas aplicaciones. Puedes verificar la configuración actual ejecutando el siguiente comando:
-
+- **Command**: `docker start hv_elaverde`
+- **Description**: Starts the previously stopped container named `hv_elaverde`.

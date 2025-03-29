@@ -31,17 +31,24 @@ def get_jobs():
 
 @app.route('/portfolio', methods=['GET'])   
 def get_portfolio():
-    all_portfolio = Portfolio.query.all()
+    all_portfolio = Portfolio.query.filter_by(destaque=1).all()
     portfolio_data = [portfolio.to_dict() for portfolio in all_portfolio]
     response = jsonify(portfolio_data)
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
-
-@app.route('/skills', methods=['GET'])
-def get_skills():
-    all_skills = Skills.query.all()
-    skills_data = [skill.to_dict() for skill in all_skills]
-    response = jsonify(skills_data)
+@app.route('/portfolio/search', methods=['GET'])
+def search_portfolio():
+    query = request.args.get('query', '')
+    if query:
+        results = Portfolio.query.filter(
+            (Portfolio.title.ilike(f'%{query}%')) |
+            (Portfolio.subtitle.ilike(f'%{query}%')) |
+            (Portfolio.description.ilike(f'%{query}%'))
+        ).all()
+        portfolio_data = [portfolio.to_dict() for portfolio in results]
+    else:
+        portfolio_data = []
+    response = jsonify(portfolio_data)
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
 

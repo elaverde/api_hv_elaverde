@@ -100,7 +100,7 @@ class Pdf:
         return school
     def pagePortfolio(self):
         #consultamos la bd traemos todo el portafolio
-        all_portafolio = Portfolio.query.all()
+        all_portafolio = Portfolio.query.filter_by(destaque=1).all()
         portafolio_data = [portfolio.to_dict() for portfolio in all_portafolio]
         portafolio = portafolio_data
         #le agregamos mas contenido al self.context

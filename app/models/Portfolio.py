@@ -8,6 +8,8 @@ class Portfolio(db.Model):
     logo = db.Column(db.Text(), nullable=False)
     photo = db.Column(db.Text(), nullable=False)
     link = db.Column(db.Text(), nullable=False)
+    repository = db.Column(db.Text(), nullable=False)
+    destaque = db.Column(db.Boolean, default=False)
 
     def to_dict(self):
         return {
@@ -17,5 +19,7 @@ class Portfolio(db.Model):
             'description': self.description,
             'logo': self.logo,
             'photo': self.photo,
-            'link': self.link
+            'link': self.link,
+            'repository': self.repository,
+            'destaque': self.destaque
         }
