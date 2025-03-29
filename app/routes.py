@@ -54,6 +54,14 @@ def search_portfolio():
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
 
+@app.route('/skills', methods=['GET'])
+def get_skills():
+    all_skills = Skills.query.all()
+    skills_data = [skill.to_dict() for skill in all_skills]
+    response = jsonify(skills_data)
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
+
 @app.route('/studies', methods=['GET'])
 def get_studies():
     all_studies = Studies.query.order_by(Studies.dateEntry.desc()).all()
