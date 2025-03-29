@@ -47,7 +47,9 @@ def search_portfolio():
         ).all()
         portfolio_data = [portfolio.to_dict() for portfolio in results]
     else:
-        portfolio_data = []
+        portfolio_data = Portfolio.query.all()
+        portfolio_data = [portfolio.to_dict() for portfolio in portfolio_data]
+        
     response = jsonify(portfolio_data)
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
