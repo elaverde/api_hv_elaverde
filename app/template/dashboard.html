@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Vida | Edilson Laverde</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
+    <style>
+        :root {
+            --primary: #20ce65;
+            --primary-glow: rgba(32, 206, 101, 0.4);
+            --bg-dark: #19232b;
+            --bg-deep: #0a0f14;
+            --glass: rgba(25, 35, 43, 0.75);
+            --border: rgba(32, 206, 101, 0.2);
+            --text-light: #ffffff;
+            --text-dim: #94a3b8;
+            --sidebar-width: 300px;
+        }
+
+        * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-light);
+            font-family: 'Outfit', sans-serif;
+            margin: 0;
+            display: flex;
+            min-height: 100vh;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(32, 206, 101, 0.05) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(32, 206, 101, 0.05) 0px, transparent 50%);
+        }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg-deep); }
+        ::-webkit-scrollbar-thumb { 
+            background: linear-gradient(to bottom, var(--primary), #10b981); 
+            border-radius: 0; 
+        }
+
+        /* Tabs System Hide - Critical Fix */
+        .tab-content { display: none !important; }
+        .tab-content.active { display: block !important; }
+
+        input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(1); cursor: pointer; }
+
+        .sidebar {
+            width: var(--sidebar-width);
+            background: linear-gradient(180deg, var(--bg-dark) 0%, #0f171e 100%);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            padding: 3rem 1rem;
+            position: fixed;
+            height: 100vh;
+            z-index: 100;
+        }
+
+        .branding { margin-bottom: 3rem; padding-left: 15px; }
+        .branding h1 { font-size: 1.4rem; font-weight: 800; color: var(--primary); margin: 0; display: flex; align-items: center; gap: 12px; }
+        .eye-logo { width: 30px; height: 30px; background: var(--primary); border-radius: 50% 5px; transform: rotate(45deg); position: relative; box-shadow: 0 0 15px var(--primary-glow); }
+        .eye-logo::after { content: ''; position: absolute; width: 10px; height: 10px; background: #19232b; border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+
+        .nav-menu { list-style: none; padding: 0; margin: 0; }
+        .nav-btn { background: none; border: none; color: var(--text-dim); width: 100%; text-align: left; padding: 14px 20px; border-radius: 12px; font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 15px; transition: 0.3s; margin-bottom: 5px; }
+        .nav-btn:hover, .nav-btn.active { background: rgba(32, 206, 101, 0.1); color: white; }
+        .nav-btn.active { color: var(--primary); border-left: 3px solid var(--primary); border-radius: 0 12px 12px 0; }
+
+        .logout-link { padding: 14px 20px; color: #f87171; text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 15px; margin-top: auto; }
+
+        .content-area { margin-left: var(--sidebar-width); padding: 4rem 5rem; width: 100%; max-width: 1250px; }
+        header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4rem; }
+        .header-info h2 { font-size: 2.5rem; font-weight: 800; margin: 0; color: #fff; }
+        .header-info p { color: var(--text-dim); margin-top: 10px; }
+
+        .btn-premium { background: var(--primary); color: #000; padding: 12px 28px; border-radius: 50px; text-decoration: none; font-weight: 700; border: none; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: 0.3s; }
+        .btn-premium:hover { transform: translateY(-2px); box-shadow: 0 5px 20px var(--primary-glow); }
+
+        .card-pro { 
+            background: var(--bg-dark); 
+            border: 1px solid var(--border); 
+            padding: 3rem; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            border-radius: 20px; /* Reduced for content */
+        }
+
+        .card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 1.5rem; }
+        .card-top h3 { font-size: 1.3rem; color: var(--primary); margin: 0; }
+
+        .premium-item { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.03); padding: 20px; display: flex; align-items: center; gap: 20px; margin-bottom: 10px; transition: 0.3s; }
+        .premium-item:hover { background: rgba(255,255,255,0.05); border-color: var(--primary); }
+        .item-thumb { width: 50px; height: 50px; border-radius: 8px; object-fit: cover; flex-shrink: 0; }
+        .item-body { flex-grow: 1; }
+        .item-body b { font-size: 1.1rem; color: white; display: block; margin-bottom: 4px; }
+        .item-body span { color: var(--text-dim); font-size: 0.9rem; }
+
+        .item-actions { display: flex; gap: 10px; }
+        .btn-ui { width: 38px; height: 38px; border: 1px solid rgba(255,255,255,0.1); color: var(--text-dim); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.3s; background: none; }
+        .btn-ui:hover { color: var(--primary); border-color: var(--primary); }
+        .btn-ui.danger:hover { color: #f87171; border-color: #f87171; }
+
+        .form-pro { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+        .f-group { display: flex; flex-direction: column; gap: 8px; }
+        .f-full { grid-column: span 2; }
+        label { font-size: 0.8rem; font-weight: 700; color: var(--text-dim); text-transform: uppercase; }
+        input, textarea { background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(255, 255, 255, 0.1); padding: 14px; color: white; border-radius: 4px; font-family: 'Roboto', sans-serif; }
+        input:focus, textarea:focus { outline: none; border-color: var(--primary); }
+        textarea { min-height: 250px; }
+
+        /* Modal - Removed Rounded Corners as requested */
+        #pro-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 2000; justify-content: center; align-items: center; }
+        .modal-inner { background: var(--bg-dark); border: 1px solid var(--border); padding: 3rem; width: 100%; max-width: 750px; max-height: 100vh; overflow-y: auto; position: relative; border-radius: 0; }
+
+        /* Multi-input */
+        .multi-input-container { display: flex; flex-direction: column; gap: 8px; }
+        .multi-input-row { display: flex; gap: 8px; }
+        .btn-tiny { background: none; border: 1px solid rgba(255,255,255,0.1); color: var(--text-dim); padding: 5px 10px; cursor: pointer; }
+        .btn-tiny:hover { color: var(--primary); border-color: var(--primary); }
+    </style>
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="branding" style="text-align: center; display: flex; flex-direction: column; align-items: center; gap: 10px;">
+            <img src="{{ url_for('static', filename='img/logo.png') }}" style="width: 80px; height: 80px;">
+            <h1 style="font-size: 1.2rem; letter-spacing: 2px;">HOJA DE VIDA</h1>
+        </div>
+
+
+
+
+        <nav class="nav-menu">
+            <button class="nav-btn" data-tab="personal" onclick="switchTab('personal')"><i class="fa-solid fa-id-card"></i> Identidad</button>
+            <button class="nav-btn" data-tab="experience" onclick="switchTab('experience')"><i class="fa-solid fa-briefcase"></i> Laboral</button>
+            <button class="nav-btn" data-tab="academic" onclick="switchTab('academic')"><i class="fa-solid fa-user-graduate"></i> Académica</button>
+            <button class="nav-btn" data-tab="portfolio" onclick="switchTab('portfolio')"><i class="fa-solid fa-folder-open"></i> Proyectos</button>
+            <button class="nav-btn" data-tab="skills" onclick="switchTab('skills')"><i class="fa-solid fa-microchip"></i> Habilidades</button>
+        </nav>
+        <a href="/logout" class="logout-link"><i class="fa-solid fa-power-off"></i> Salir</a>
+    </aside>
+
+    <main class="content-area">
+        <header>
+            <div class="header-info">
+                <h2 id="tab-title">Gestión de Perfil</h2>
+                <p>Configura tu información profesional.</p>
+            </div>
+            <a href="/servicio" class="btn-premium" target="_blank"><i class="fa-solid fa-file-pdf"></i> Generar PDF</a>
+        </header>
+
+        <div id="personal" class="tab-content">
+            <div class="card-pro">
+                <form id="about-form" class="form-pro">
+                    <div class="f-group"><label>Nombre</label><input type="text" name="name" value="{{ about.name }}"></div>
+                    <div class="f-group"><label>Apellido</label><input type="text" name="lastname" value="{{ about.lastname }}"></div>
+                    <div class="f-group"><label>Email</label><input type="email" name="email" value="{{ about.email }}"></div>
+                    <div class="f-group"><label>Teléfono</label><input type="text" name="phone" value="{{ about.phone }}"></div>
+                    <div class="f-group f-full"><label>Resumen</label><textarea name="about">{{ about.about }}</textarea></div>
+                    <div class="f-group"><label>LinkedIn</label><input type="text" name="linkedin" value="{{ about.linkedin }}"></div>
+                    <div class="f-group"><label>GitHub</label><input type="text" name="github" value="{{ about.github }}"></div>
+                    <div class="f-group"><label>GitLab</label><input type="text" name="gitlab" value="{{ about.gitlab }}"></div>
+                    <button type="submit" class="btn-premium" style="grid-column: span 2; justify-content: center; margin-top: 1rem;">Guardar Cambios</button>
+
+                </form>
+            </div>
+        </div>
+
+        <div id="experience" class="tab-content">
+            <div class="card-pro">
+                <div class="card-top"><h3>Experiencia Laboral</h3><button class="btn-premium" onclick="showModal('jobs')"><i class="fa-solid fa-plus"></i> Añadir</button></div>
+                {% for job in jobs %}
+                <div class="premium-item">
+                    <img src="{{ (job.photo or '').split(',')[0] if job.photo else 'https://ui-avatars.com/api/?name=' + job.enterprise }}" class="item-thumb">
+                    <div class="item-body"><b>{{ job.enterprise }}</b><span>{{ job.charge }} | {{ job.dateEntry }} — {{ job.dateEnd or 'Actualmente' }}</span></div>
+                    <div class="item-actions">
+                        <button class="btn-ui" onclick="showModal('jobs', {{ job.id }})"><i class="fa-solid fa-pen"></i></button>
+                        <button class="btn-ui danger" onclick="deleteItem('jobs', {{ job.id }})"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div id="academic" class="tab-content">
+            <div class="card-pro">
+                <div class="card-top"><h3>Formación Académica</h3><button class="btn-premium" onclick="showModal('studies')"><i class="fa-solid fa-plus"></i> Añadir</button></div>
+                {% for study in studies %}
+                <div class="premium-item">
+                    <img src="{{ (study.photo or '').split(',')[0] if study.photo else 'https://ui-avatars.com/api/?name=' + study.institution }}" class="item-thumb">
+                    <div class="item-body"><b>{{ study.title }}</b><span>{{ study.institution }} | {{ study.dateEntry }} — {{ study.dateEnd }}</span></div>
+                    <div class="item-actions">
+                        <button class="btn-ui" onclick="showModal('studies', {{ study.id }})"><i class="fa-solid fa-pen"></i></button>
+                        <button class="btn-ui danger" onclick="deleteItem('studies', {{ study.id }})"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div id="portfolio" class="tab-content">
+            <div class="card-pro">
+                <div class="card-top"><h3>Portafolio</h3><button class="btn-premium" onclick="showModal('portfolio')"><i class="fa-solid fa-plus"></i> Añadir</button></div>
+                {% for item in portfolio %}
+                <div class="premium-item">
+                    <img src="{{ (item.photo or '').split(',')[0] if item.photo else (item.logo or 'https://placehold.co/100x100?text=Project') }}" class="item-thumb">
+                    <div class="item-body"><b>{{ item.title }}</b><span>{{ item.subtitle }}</span></div>
+                    <div class="item-actions">
+                        <button class="btn-ui" onclick="showModal('portfolio', {{ item.id }})"><i class="fa-solid fa-pen"></i></button>
+                        <button class="btn-ui danger" onclick="deleteItem('portfolio', {{ item.id }})"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div id="skills" class="tab-content">
+            <div class="card-pro">
+                <div class="card-top"><h3>Habilidades</h3><button class="btn-premium" onclick="showModal('skills')"><i class="fa-solid fa-plus"></i> Añadir</button></div>
+                {% for skill in skills %}
+                <div class="premium-item">
+                    <div class="btn-ui"><i class="{{ skill.icon or 'fa-solid fa-code' }}"></i></div>
+                    <div class="item-body">
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <b>{{ skill.name }}</b>
+                            {% if skill.url %}<a href="{{ skill.url }}" target="_blank" style="color: var(--primary); font-size: 0.8rem;"><i class="fa-solid fa-external-link"></i></a>{% endif %}
+                        </div>
+                        <div style="width: 100%; height: 6px; background: rgba(255,255,255,0.05); margin-top: 8px;"><div style="width: {{ skill.percentage }}%; height: 100%; background: var(--primary);"></div></div>
+                    </div>
+                    <div class="item-actions">
+                        <button class="btn-ui" onclick="showModal('skills', {{ skill.id }})"><i class="fa-solid fa-pen"></i></button>
+                        <button class="btn-ui danger" onclick="deleteItem('skills', {{ skill.id }})"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </main>
+
+    <div id="pro-modal">
+        <div class="modal-inner">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 2rem;">
+                <h2 id="modal-title" style="margin: 0; font-family: 'Outfit';">Edición</h2>
+                <button onclick="closeModal()" style="background: none; border: none; color: white; cursor: pointer; font-size: 2.5rem;">&times;</button>
+            </div>
+            <form id="modal-form" class="form-pro">
+                <div id="modal-fields" class="form-pro" style="grid-column: span 2;"></div>
+                <button type="submit" class="btn-premium" style="grid-column: span 2; justify-content: center; margin-top: 1rem; padding: 15px;">Guardar</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tabName) {
+            document.querySelectorAll(".tab-content").forEach(t => t.classList.remove("active"));
+            document.querySelectorAll(".nav-btn").forEach(b => b.classList.remove("active"));
+            const target = document.getElementById(tabName);
+            if(target) target.classList.add("active");
+            const btn = document.querySelector(`[data-tab="${tabName}"]`);
+            if (btn) btn.classList.add("active");
+            localStorage.setItem("activeTab", tabName);
+        }
+
+        window.onload = () => { switchTab(localStorage.getItem("activeTab") || "personal"); };
+
+        async function performSync(url, method, data) {
+            try {
+                const response = await fetch(url, { method: method, headers: { 'Content-Type': 'application/json' }, body: data ? JSON.stringify(data) : null });
+                if (response.ok) location.reload();
+            } catch (err) { console.error(err); }
+        }
+
+        document.getElementById('about-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            await performSync('/about', 'PUT', Object.fromEntries(new FormData(e.target)));
+        });
+
+        async function deleteItem(type, id) { if (confirm('¿Eliminar?')) await performSync(`/${type}/${id}`, 'DELETE'); }
+        function closeModal() { document.getElementById('pro-modal').style.display = 'none'; }
+
+        function addMultiInputRow(container, value = "") {
+            const row = document.createElement('div');
+            row.className = 'multi-input-row';
+            row.innerHTML = `<input type="text" value="${value}" style="flex-grow:1;"><button type="button" class="btn-tiny" onclick="this.parentElement.remove()">&times;</button>`;
+            container.appendChild(row);
+        }
+
+        async function showModal(type, id = null) {
+            const modal = document.getElementById('pro-modal');
+            const fields = document.getElementById('modal-fields');
+            const form = document.getElementById('modal-form');
+            const title = document.getElementById('modal-title');
+            
+            fields.innerHTML = 'Cargando...';
+            title.innerText = id ? `Actualizar Registro` : `Nuevo Registro`;
+            modal.style.display = 'flex';
+            
+            const fieldConfigs = {
+                jobs: [
+                    {name:'enterprise', label:'Empresa'}, {name:'charge', label:'Cargo'},
+                    {name:'dateEntry', label:'Inicio', type:'date'}, {name:'dateEnd', label:'Fin', type:'date'},
+                    {name:'work', label:'Descripción', wide:true}, {name:'photo', label:'URLs Fotos', multi:true, wide:true}
+                ],
+                skills: [
+                    {name:'name', label:'Habilidad'}, {name:'percentage', label:'Nivel (0-100)', type:'number'},
+                    {name:'icon', label:'Clase Icono'}, {name:'url', label:'Referencia'}
+                ],
+                portfolio: [
+                    {name:'title', label:'Nombre Proyecto'}, {name:'subtitle', label:'Subtítulo'},
+                    {name:'description', label:'Detalles', wide:true}, {name:'logo', label:'URL Logo'},
+                    {name:'photo', label:'URLs Galería', multi:true, wide:true}, {name:'link', label:'Link Live'},
+                    {name:'repository', label:'Repo'}, {name:'destaque', label:'Destaque (0/1)', type:'number'}
+                ],
+                studies: [
+                    {name:'title', label:'Título'}, {name:'institution', label:'Institución'},
+                    {name:'dateEntry', label:'Inicio', type:'date'}, {name:'dateEnd', label:'Fin', type:'date'},
+                    {name:'direction', label:'Ubicación'}, {name:'description', label:'Resumen', wide:true},
+                    {name:'photo', label:'URLs Fotos', multi:true, wide:true}, {name:'important', label:'Destacar (0/1)', type:'number'}
+                ]
+            };
+
+            let data = {};
+            if (id) {
+                const res = await fetch(`/${type}/${id}`);
+                data = await res.json();
+            }
+
+            fields.innerHTML = '';
+            fieldConfigs[type].forEach(f => {
+                const div = document.createElement('div');
+                div.className = f.wide ? 'f-group f-full' : 'f-group';
+                div.innerHTML = `<label>${f.label}</label>`;
+                if (f.multi) {
+                    const c = document.createElement('div'); c.className = 'multi-input-container'; c.dataset.name = f.name;
+                    (data[f.name] || "").split(',').filter(v => v.trim() !== "").forEach(v => addMultiInputRow(c, v));
+                    if (c.children.length === 0) addMultiInputRow(c);
+                    const b = document.createElement('button'); b.type = "button"; b.className = "btn-tiny"; b.innerHTML = "+ Añadir URL"; b.onclick = () => addMultiInputRow(c);
+                    div.appendChild(c); div.appendChild(b);
+                } else if (f.wide) {
+                    div.innerHTML += `<textarea name="${f.name}" required>${data[f.name] || ''}</textarea>`;
+                } else {
+                    div.innerHTML += `<input type="${f.type || 'text'}" name="${f.name}" value="${data[f.name] || ''}" required>`;
+                }
+                fields.appendChild(div);
+            });
+
+            form.onsubmit = async (e) => {
+                e.preventDefault();
+                const d = Object.fromEntries(new FormData(form));
+                form.querySelectorAll('.multi-input-container').forEach(c => {
+                    d[c.dataset.name] = Array.from(c.querySelectorAll('input')).map(i => i.value).filter(v => v.trim()).join(',');
+                });
+                if (d.percentage) d.percentage = parseInt(d.percentage);
+                if (d.destaque !== undefined) d.destaque = parseInt(d.destaque) === 1;
+                if (d.important !== undefined) d.important = parseInt(d.important) === 1;
+                await performSync(id ? `/${type}/${id}` : `/${type}`, id ? 'PUT' : 'POST', d);
+            };
+        }
+    </script>
+</body>
+</html>
